@@ -1,0 +1,19 @@
+* Introduction
+
+  An RPN calculator in Ruby.
+
+  The main goals are:
+
+  1. Produce an RPN calculator
+  2. Learn Ruby
+
+
+* Design decisions 
+
+** First Cut
+
+   The first version will be an interactive =readline=-based
+   calculator. This will help me quickly test input data and ensure
+   correctness and robustness.
+
+

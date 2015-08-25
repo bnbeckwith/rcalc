@@ -1,0 +1,127 @@
+* Tasks
+
+  These are the clocked tasks for the RPN calculator
+
+** DONE Print out header
+   :LOGBOOK:
+   CLOCK: [2015-08-24 Mon 15:57]--[2015-08-24 Mon 16:00] =>  0:03
+   :END:
+
+   Print out a small header with version information.
+
+** DONE Incorporate readline for input
+   :LOGBOOK:
+   CLOCK: [2015-08-24 Mon 16:01]--[2015-08-24 Mon 16:08] =>  0:07
+   :END:
+
+   Require readline and produce a basic REPL.
+
+** DONE Create line tokens
+   CLOSED: [2015-08-24 Mon 16:47]
+   - State "DONE"       from "TODO"       [2015-08-24 Mon 16:47]
+   :CLOCK:
+   CLOCK: [2015-08-24 Mon 16:41]--[2015-08-24 Mon 16:47] =>  0:06
+   :END:
+
+   Using the REPL, grab a line and tokenize it.
+
+** DONE Evaluate stack until only one operand left
+   CLOSED: [2015-08-25 Tue 14:07]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2015-08-25 Tue 14:07]
+   :END:
+   :CLOCK:
+   CLOCK: [2015-08-24 Mon 16:48]--[2015-08-24 Mon 16:57] =>  0:09
+   :END:
+
+   After tokenizing, push values on the stack and evaluate operations.
+
+** DONE Figure out how to evaluate operands
+   CLOSED: [2015-08-24 Mon 16:58]
+   - State "DONE"       from "TODO"       [2015-08-24 Mon 16:58]
+   :CLOCK:
+   CLOCK: [2015-08-24 Mon 16:57]--[2015-08-24 Mon 17:00] =>  0:03
+   :END:
+
+   Using the =send= method, I can pass on the string operations on the
+   numerical objects and arguments. The Smalltalk shows through here.
+
+** DONE How to pop off of the stack?
+   CLOSED: [2015-08-24 Mon 17:02]
+   - State "DONE"       from "TODO"       [2015-08-24 Mon 17:02]
+   :CLOCK:
+   CLOCK: [2015-08-24 Mon 16:58]--[2015-08-24 Mon 17:03] =>  0:05
+   :END:
+
+   This is a simple pop like Perl.
+
+** DONE Convert operands to proper numbers
+   CLOSED: [2015-08-25 Tue 14:04]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2015-08-25 Tue 14:04]
+   :END:
+   :CLOCK:
+   CLOCK: [2015-08-25 Tue 11:44]--[2015-08-25 Tue 11:55] =>  0:11
+   CLOCK: [2015-08-24 Mon 22:56]--[2015-08-24 Mon 22:59] =>  0:03
+   :END:
+
+   I'll need to do the following
+
+   - [X] Float
+   - [X] Int
+   - [X] Complex
+   - [X] Hex/Bin/Octal
+
+
+   What if I just look for a /numberish/ thing and eval that component
+   to let the parser return the value.  I don't have to write my own
+   parser and can rely on the ruby input types.
+
+   What is numberish?  Anything that starts with a digit optionally
+   preceeded by a +/-.
+
+   /[+-]?[0-9]/
+
+   I can transform the whole line and then the operands are the
+   strings that are left.
+
+   I'll use =eval= here for now to avoid creating my own number
+   parser.
+
+** DONE Handle exceptions
+   CLOSED: [2015-08-25 Tue 14:48]
+   - State "DONE"       from "TODO"       [2015-08-25 Tue 14:48]
+   :CLOCK:
+   CLOCK: [2015-08-25 Tue 14:32]--[2015-08-25 Tue 14:48] =>  0:16
+   :END:
+
+   Exceptions that I expect:
+
+   - Not enough operands
+   - No method
+   - Numeric conversion
+   - No operands
+   
+     
+** TODO Produce error on too many items left in the stack 
+
+   This is a case of too few operations specified.
+
+
+* Clockreport
+
+  #+BEGIN: clocktable :maxlevel 2 :scope file
+  #+CAPTION: Clock summary at [2015-08-25 Tue 14:32]
+  | Headline                                     | Time   |      |
+  |----------------------------------------------+--------+------|
+  | *Total time*                                 | *0:47* |      |
+  |----------------------------------------------+--------+------|
+  | Tasks                                        | 0:47   |      |
+  | \_  DONE Print out header                    |        | 0:03 |
+  | \_  DONE Incorporate readline for input      |        | 0:07 |
+  | \_  DONE Create line tokens                  |        | 0:06 |
+  | \_  DONE Evaluate stack until only one...    |        | 0:09 |
+  | \_  DONE Figure out how to evaluate operands |        | 0:03 |
+  | \_  DONE How to pop off of the stack?        |        | 0:05 |
+  | \_  DONE Convert operands to proper numbers  |        | 0:14 |
+  #+END:
