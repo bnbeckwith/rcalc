@@ -28,7 +28,7 @@ def eval_stack(tokens)
       stack.push(token)
     end
   end
-  stack[0]
+  stack
 end
 
 # Change input the looks like numbers into actual numbers
@@ -62,6 +62,9 @@ while buf = Readline.readline("> ", true)
   end
   # Evaluate the stack
   result = eval_stack(stack)
+  if result.length > 1
+    puts "Error: Not enough operators"
+  end
   puts result
 end
 
