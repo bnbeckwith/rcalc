@@ -1,8 +1,8 @@
 #!/bin/env ruby
-
+require 'optparse'
 require 'readline'
 
-$version = "0.0"
+$version = "1.0"
 
 puts "RCalc version %s" % $version
 
@@ -42,29 +42,57 @@ def parse_numbers(stack)
   }
 end 
 
-# The main part of the program
-while buf = Readline.readline("> ", true)
-  # tokenize buf
-  stack = buf.split()
-  
-  # Check if user has asked to quit
-  if /^\s*quit/ =~ stack[0]
-    break
-  end
+def calculate_line(line)
+  # tokenize line
+  stack = line.split()
 
   # Parse any numbers in the list (leaving ops as strings)
   #  Exceptions on items that are not quite numbers
-  begin
-    stack = parse_numbers(stack)
-  rescue Exception => e
-    puts e.message
-    next
-  end
+  stack = parse_numbers(stack)
+
   # Evaluate the stack
-  result = eval_stack(stack)
-  if result.length > 1
-    puts "Error: Not enough operators"
+  eval_stack(stack)
+
+end
+
+# Setup some options for the user
+options = {}
+option_parser = OptionParser.new do |opts|
+
+  # Let the user pass in something to execute on the command line
+  opts.on('-e', '--execute',
+         'Pass in a line to calculate') do |line|
+    options[:execute] = line
   end
-  puts result
+
+end
+
+option_parser.parse!
+
+if options[:execute] then
+# Parse string passed in on the command line
+  
+else
+
+  # The main part of the program
+  while buf = Readline.readline("> ", true)
+    
+    # Check if user has asked to quit
+    if /^\s*quit/ =~ buf
+      break
+    end
+
+    begin
+      result = calculate_line(buf)
+    rescue Exception => e
+      puts e.message
+      next
+    end
+    
+    if result.length > 1
+      puts "Error: Not enough operators"
+    end
+    puts result
+  end
 end
 
