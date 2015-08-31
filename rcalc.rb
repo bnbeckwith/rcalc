@@ -60,8 +60,9 @@ options = {}
 option_parser = OptionParser.new do |opts|
 
   # Let the user pass in something to execute on the command line
-  opts.on('-e', '--execute',
-         'Pass in a line to calculate') do |line|
+  options[:execute] = nil
+  opts.on('-e STRING', '--execute STRING',
+         'Calculate expression in STRING') do |line|
     options[:execute] = line
   end
 
@@ -70,8 +71,9 @@ end
 option_parser.parse!
 
 if options[:execute] then
-# Parse string passed in on the command line
-  
+  # Parse string passed in on the command line
+  result = calculate_line( options[:execute] )
+  puts result
 else
 
   # The main part of the program
