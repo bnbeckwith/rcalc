@@ -4,8 +4,6 @@ require 'readline'
 
 $version = "1.0"
 
-puts "RCalc version %s" % $version
-
 # Evaluate the given tokens
 def eval_stack(tokens)
   stack = []
@@ -43,6 +41,7 @@ def parse_numbers(stack)
 end 
 
 def calculate_line(line)
+
   # tokenize line
   stack = line.split()
 
@@ -75,6 +74,9 @@ if options[:execute] then
   result = calculate_line( options[:execute] )
   puts result
 else
+
+  # Print header for interactive use
+  puts "RCalc version %s" % $version
 
   # The main part of the program
   while buf = Readline.readline("> ", true)
