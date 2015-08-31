@@ -117,16 +117,35 @@
 
 ** Command-line improvements
 
+*** DONE Print usage
+    CLOSED: [2015-08-26 Wed 09:40]
+    - State "DONE"       from "TODO"       [2015-08-26 Wed 09:40]
+    :CLOCK:
+    CLOCK: [2015-08-26 Wed 09:37]--[2015-08-26 Wed 09:40] =>  0:03
+    :END:
+*** TODO Accept streaming input 
+    :CLOCK:
+    CLOCK: [2015-08-30 Sun 22:24]--[2015-08-30 Sun 22:32] =>  0:08
+    :END:
+*** TODO Accept string input
+    :CLOCK:
+    CLOCK: [2015-08-26 Wed 09:34]--[2015-08-26 Wed 09:37] =>  0:03
+    :END:
+
 ** Readline improvments
 
+*** TODO Add in history
+*** TODO Put cursor at right spot for errors
+** Test Suite
 * Clockreport
 
   #+BEGIN: clocktable :maxlevel 3 :scope file
-  #+CAPTION: Clock summary at [2015-08-26 Wed 09:25]
+  #+CAPTION: Clock summary at [2015-08-26 Wed 09:40]
   | Headline                                       | Time   |      |      |
   |------------------------------------------------+--------+------+------|
-  | *Total time*                                   | *1:03* |      |      |
+  | *Total time*                                   | *1:09* |      |      |
   |------------------------------------------------+--------+------+------|
+  | Tasks                                          | 1:09   |      |      |
   | \_  Basic Functionality                        |        | 1:03 |      |
   | \_    DONE Print out header                    |        |      | 0:03 |
   | \_    DONE Incorporate readline for input      |        |      | 0:07 |
@@ -136,4 +155,7 @@
   | \_    DONE How to pop off of the stack?        |        |      | 0:05 |
   | \_    DONE Convert operands to proper numbers  |        |      | 0:14 |
   | \_    DONE Handle exceptions                   |        |      | 0:16 |
+  | \_  Command-line improvements                  |        | 0:06 |      |
+  | \_    DONE Print usage                         |        |      | 0:03 |
+  | \_    TODO Accept string input                 |        |      | 0:03 |
   #+END:
