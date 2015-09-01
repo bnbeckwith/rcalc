@@ -170,15 +170,27 @@
     - [X] Put cursor in the right spot on error
 
 ** Test Suite
+** Fixes
+
+*** DONE Handle exceptions for string input
+    CLOSED: [2015-08-31 Mon 22:11]
+    - State "DONE"       from "TODO"       [2015-08-31 Mon 22:11]
+    :CLOCK:
+    CLOCK: [2015-08-31 Mon 22:07]--[2015-08-31 Mon 22:11] =>  0:04
+    :END:
+    
+    Instead of positioning a readline curosr, print out a caret
+    showing where the input breaks.
+
 * Clockreport
 
   #+BEGIN: clocktable :maxlevel 3 :scope file
-  #+CAPTION: Clock summary at [2015-08-31 Mon 21:57]
+  #+CAPTION: Clock summary at [2015-08-31 Mon 22:11]
   | Headline                                       | Time   |      |      |
   |------------------------------------------------+--------+------+------|
-  | *Total time*                                   | *2:32* |      |      |
+  | *Total time*                                   | *2:36* |      |      |
   |------------------------------------------------+--------+------+------|
-  | Tasks                                          | 2:32   |      |      |
+  | Tasks                                          | 2:36   |      |      |
   | \_  Basic Functionality                        |        | 1:03 |      |
   | \_    DONE Print out header                    |        |      | 0:03 |
   | \_    DONE Incorporate readline for input      |        |      | 0:07 |
@@ -195,4 +207,6 @@
   | \_  Readline improvments                       |        | 1:15 |      |
   | \_    DONE Add in history                      |        |      | 0:15 |
   | \_    DONE Put cursor at right spot for errors |        |      | 1:00 |
+  | \_  Fixes                                      |        | 0:04 |      |
+  | \_    DONE Handle exceptions for string input  |        |      | 0:04 |
   #+END:

@@ -92,9 +92,15 @@ end
 option_parser.parse!
 
 if options[:execute] then
-  # Parse string passed in on the command line
-  result = calculate_line( options[:execute] )
-  puts result
+  begin
+    # Parse string passed in on the command line
+    result = calculate_line( options[:execute] )
+    puts result
+  rescue CalcError => e
+    puts e.message
+    puts options[:execute]
+    puts "%s ^" % (" " * token_start(options[:execute], e.token_index))
+  end
 else
 
   # Print header for interactive use
