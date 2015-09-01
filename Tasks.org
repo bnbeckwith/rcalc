@@ -127,25 +127,58 @@
     :CLOCK:
     CLOCK: [2015-08-30 Sun 22:24]--[2015-08-30 Sun 22:32] =>  0:08
     :END:
-*** TODO Accept string input
+*** DONE Accept string input
+    CLOSED: [2015-08-31 Mon 12:33]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2015-08-31 Mon 12:33]
+    :END:
     :CLOCK:
     CLOCK: [2015-08-26 Wed 09:34]--[2015-08-26 Wed 09:37] =>  0:03
     :END:
 
 ** Readline improvments
 
-*** TODO Add in history
-*** TODO Put cursor at right spot for errors
+*** DONE Add in history
+    CLOSED: [2015-08-31 Mon 16:47]
+    :LOGBOOK:
+    - State "DONE"       from "DONE"       [2015-08-31 Mon 16:49]
+    - State "DONE"       from "TODO"       [2015-08-31 Mon 16:47]
+    :END:
+    :CLOCK:
+    CLOCK: [2015-08-31 Mon 12:45]--[2015-08-31 Mon 13:00] =>  0:15
+    :END:
+
+    Because it is Readline, the history is added automatically for
+    entered strings.
+
+    I would like to enter in the last result to history for retrieval.
+
+*** DONE Put cursor at right spot for errors
+    CLOSED: [2015-08-31 Mon 21:57]
+    - State "DONE"       from "TODO"       [2015-08-31 Mon 21:57]
+    :CLOCK:
+    CLOCK: [2015-08-31 Mon 21:32]--[2015-08-31 Mon 21:57] =>  0:25
+    CLOCK: [2015-08-31 Mon 16:30]--[2015-08-31 Mon 17:05] =>  0:35
+    :END:
+
+    I need to move around some code to make this happen. Here's what I
+    see needs to be done:
+
+    - [X] Create custom error with token index
+    - [X] Catch other specific errors for messages
+    - [X] Put error line back in Readline (using pre_input_hook)
+    - [X] Put cursor in the right spot on error
+
 ** Test Suite
 * Clockreport
 
   #+BEGIN: clocktable :maxlevel 3 :scope file
-  #+CAPTION: Clock summary at [2015-08-26 Wed 09:40]
+  #+CAPTION: Clock summary at [2015-08-31 Mon 21:57]
   | Headline                                       | Time   |      |      |
   |------------------------------------------------+--------+------+------|
-  | *Total time*                                   | *1:09* |      |      |
+  | *Total time*                                   | *2:32* |      |      |
   |------------------------------------------------+--------+------+------|
-  | Tasks                                          | 1:09   |      |      |
+  | Tasks                                          | 2:32   |      |      |
   | \_  Basic Functionality                        |        | 1:03 |      |
   | \_    DONE Print out header                    |        |      | 0:03 |
   | \_    DONE Incorporate readline for input      |        |      | 0:07 |
@@ -155,7 +188,11 @@
   | \_    DONE How to pop off of the stack?        |        |      | 0:05 |
   | \_    DONE Convert operands to proper numbers  |        |      | 0:14 |
   | \_    DONE Handle exceptions                   |        |      | 0:16 |
-  | \_  Command-line improvements                  |        | 0:06 |      |
+  | \_  Command-line improvements                  |        | 0:14 |      |
   | \_    DONE Print usage                         |        |      | 0:03 |
-  | \_    TODO Accept string input                 |        |      | 0:03 |
+  | \_    TODO Accept streaming input              |        |      | 0:08 |
+  | \_    DONE Accept string input                 |        |      | 0:03 |
+  | \_  Readline improvments                       |        | 1:15 |      |
+  | \_    DONE Add in history                      |        |      | 0:15 |
+  | \_    DONE Put cursor at right spot for errors |        |      | 1:00 |
   #+END:
