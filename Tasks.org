@@ -170,6 +170,9 @@
     - [X] Put cursor in the right spot on error
 
 ** Test Suite
+   
+   In the interest of time, I will not implement a test suite.
+
 ** Fixes
 
 *** DONE Handle exceptions for string input
@@ -179,18 +182,43 @@
     CLOCK: [2015-08-31 Mon 22:07]--[2015-08-31 Mon 22:11] =>  0:04
     :END:
     
-    Instead of positioning a readline curosr, print out a caret
+    Instead of positioning a readline cursor, print out a caret
     showing where the input breaks.
+
+*** DONE Fix application of operands
+    CLOSED: [2015-09-02 Wed 12:46]
+    - State "DONE"       from "TODO"       [2015-09-02 Wed 12:46]
+    :CLOCK:
+    CLOCK: [2015-09-02 Wed 12:25]--[2015-09-02 Wed 12:46] =>  0:21
+    :END:
+
+    Being too cute with calculating the arity, I accidentally applied
+    the operands in the wrong order.
+
+    I might be able to assume an arity of 1 or 2 meaning that the
+    checks can be made smaller.
+
+    On second thought, I can use the select operation to find any
+    matching operands to the operator specified.  Then, when I get the
+    index of the matching operand, I'll grab anything behind it as the
+    arguments to the operation.
+
+    Most of the time this should result in an arity of 1 or 2. In our
+    case, that will be 0 or 1 additional arguments.
+
+    The only other assumption that I will make is that for a negative
+    arity (representing an overloaded function), I select the smaller
+    variant.
 
 * Clockreport
 
   #+BEGIN: clocktable :maxlevel 3 :scope file
-  #+CAPTION: Clock summary at [2015-08-31 Mon 22:11]
+  #+CAPTION: Clock summary at [2015-09-02 Wed 12:47]
   | Headline                                       | Time   |      |      |
   |------------------------------------------------+--------+------+------|
-  | *Total time*                                   | *2:36* |      |      |
+  | *Total time*                                   | *2:57* |      |      |
   |------------------------------------------------+--------+------+------|
-  | Tasks                                          | 2:36   |      |      |
+  | Tasks                                          | 2:57   |      |      |
   | \_  Basic Functionality                        |        | 1:03 |      |
   | \_    DONE Print out header                    |        |      | 0:03 |
   | \_    DONE Incorporate readline for input      |        |      | 0:07 |
@@ -207,6 +235,7 @@
   | \_  Readline improvments                       |        | 1:15 |      |
   | \_    DONE Add in history                      |        |      | 0:15 |
   | \_    DONE Put cursor at right spot for errors |        |      | 1:00 |
-  | \_  Fixes                                      |        | 0:04 |      |
+  | \_  Fixes                                      |        | 0:25 |      |
   | \_    DONE Handle exceptions for string input  |        |      | 0:04 |
+  | \_    DONE Fix application of operands         |        |      | 0:21 |
   #+END:
