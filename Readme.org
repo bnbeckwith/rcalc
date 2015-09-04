@@ -6,7 +6,22 @@
 
   1. Produce an RPN calculator
   2. Learn Ruby
+     1. Tested with ruby 2.2.3
 
+
+* How to use
+
+  There are two main ways to use the calculator.  
+
+  #+BEGIN_EXAMPLE
+  > ./ruby.rb
+  #+END_EXAMPLE
+
+  Or pass in a string on the command line:
+
+  #+BEGIN_EXAMPLE
+  > ./ruby.rb -e "1 2 +"
+  #+END_EXAMPLE
 
 * Design decisions 
 
@@ -16,4 +31,17 @@
    calculator. This will help me quickly test input data and ensure
    correctness and robustness.
 
+** Command-line additions
+
+   The first improvement is a command-line option to accept string
+   input for processing.
+
+** Readline improvements
+
+   In interactive use, I can make input error fixing easier for the
+   user. Upon reaching an error with an input number or operator, the
+   calculator will put the incorrect line back into the input line and
+   place the cursor on the broken item.
+
+   This should make any mistakes easier to resolve.
 
